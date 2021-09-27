@@ -1,7 +1,9 @@
 import React from "react";
-import Header from "./Components/Admin/Header";
-import Menu from "./Components/Admin/Menu";
+
 import { BrowserRouter, Switch, Route } from "react-router-dom";
+import Dashboard from "./Components/Admin/Dashboard";
+import StudentList from "./Components/Admin/StudentList";
+import StudentRegister from "./Components/Admin/StudentRegister";
 
 function App() {
   return (
@@ -9,8 +11,13 @@ function App() {
       <BrowserRouter>
         <Switch>
           <Route exact path="/">
-            <Header></Header>
-            <Menu></Menu>
+            <Dashboard />
+          </Route>
+          <Route path="/studentlist">
+            <StudentList></StudentList>
+          </Route>
+          <Route path="/newstudent">
+            <StudentRegister></StudentRegister>
           </Route>
         </Switch>
       </BrowserRouter>

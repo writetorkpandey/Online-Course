@@ -40,7 +40,7 @@ export default function Menu() {
             data-accordion="false"
           >
             <li className="nav-item">
-              <Link to="dashboard" className="nav-link">
+              <Link to="/" className="nav-link">
                 <i className="nav-icon far fa-image" />
                 <p>Dashboard</p>
               </Link>
@@ -50,78 +50,18 @@ export default function Menu() {
               <a href="#" className="nav-link">
                 <i className="nav-icon fas fa-tachometer-alt" />
                 <p>
-                  Profile
+                  Student
                   <i className="right fas fa-angle-left" />
                 </p>
               </a>
               <ul className="nav nav-treeview">
                 <li className="nav-item">
-                  <Link to="my-profile" className="nav-link active">
+                  <Link to="studentlist" className="nav-link active">
                     <i className="far fa-circle nav-icon" />
-                    <p>Profile</p>
-                  </Link>
-                </li>
-                <li className="nav-item">
-                  <Link to="chnage-password" className="nav-link">
-                    <i className="far fa-circle nav-icon" />
-                    <p>Password</p>
+                    <p>Student List</p>
                   </Link>
                 </li>
               </ul>
-            </li>
-            <li className="nav-item">
-              <Link to="client-list" className="nav-link">
-                <i className="nav-icon fas fa-th" />
-                <p>Client</p>
-              </Link>
-            </li>
-            <li className="nav-item has-treeview">
-              <a href="#" className="nav-link">
-                <i className="nav-icon fas fa-copy" />
-                <p>
-                  Master
-                  <i className="fas fa-angle-left right" />
-                </p>
-              </a>
-              <ul className="nav nav-treeview">
-                <li className="nav-item">
-                  <Link to="fess" className="nav-link">
-                    <i className="nav-icon fas fa-rupee-sign" />
-                    <p>Fees</p>
-                  </Link>
-                </li>
-                <li className="nav-item">
-                  <Link to="ay" className="nav-link">
-                    <i className="nav-icon fas fa-calendar-alt" />
-                    <p>Assessmet Year </p>
-                  </Link>
-                </li>
-                <li className="nav-item">
-                  <Link to="bank-list" className="nav-link">
-                    <i className="nav-icon fas fa-building" />
-                    <p>Bank Master</p>
-                  </Link>
-                </li>
-                <li className="nav-item">
-                  <Link to="employee-list" className="nav-link">
-                    <i className="nav-icon fas fa-user" />
-                    <p>Employee List</p>
-                  </Link>
-                </li>
-
-                <li className="nav-item">
-                  <Link to="user-role" className="nav-link">
-                    <i className="far fa-circle nav-icon" />
-                    <p>User Role</p>
-                  </Link>
-                </li>
-              </ul>
-            </li>
-            <li className="nav-item">
-              <Link to="dashboard" className="nav-link">
-                <i className="nav-icon fas fa-edit" />
-                <p> Pending Document</p>
-              </Link>
             </li>
           </ul>
         </nav>
