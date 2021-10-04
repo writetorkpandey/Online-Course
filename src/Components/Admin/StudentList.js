@@ -3,27 +3,22 @@ import { Link } from "react-router-dom";
 import Footer from "./Footer";
 import Header from "./Header";
 import Menu from "./Menu";
+import { onSnapshot, collection } from "firebase/firestore";
+import db from "../../Firebase/Firebase";
 
 export default function StudentList() {
   const [studentList, setStudentList] = useState([]);
-  useEffect(() => {
-    // creates entity
-    fetch("http://localhost:17575//api/Student/StudentList", {
-      method: "GET",
-      headers: {
-        "content-type": "application/json",
-        accept: "application/json",
-      },
-    })
-      .then((response) => response.json())
-      .then((response) => {
-        setStudentList(response.getStudentList);
-        console.log(response);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, []);
+
+  useEffect(
+    () =>
+      onSnapshot(collection(db, "StudentDB"), (snapshot) =>
+        setStudentList(
+          snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }))
+        )
+      ),
+    []
+  );
+
   const searchData = (e) => {
     console.log(e.target.value);
     const x = studentList.filter((data) => data.Name.includes(e.target.value));
@@ -117,7 +112,7 @@ export default function StudentList() {
                                 <a
                                   href="#"
                                   class="text-muted"
-                                  onClick={editStudent(item.StudentId)}
+                                  // onClick={editStudent(item.StudentId)}
                                 >
                                   <i class="fas fa-edit"></i>
                                 </a>

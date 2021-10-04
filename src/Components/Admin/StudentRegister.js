@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import Footer from "./Footer";
 import Header from "./Header";
 import Menu from "./Menu";
+import { onSnapshot, collection, addDoc } from "firebase/firestore";
+import db from "../../Firebase/Firebase";
 
 export default function StudentRegister() {
   const [addStudent, setAddStudent] = useState({
@@ -18,23 +20,11 @@ export default function StudentRegister() {
     });
     console.log(addStudent);
   };
-  const updateStudentInfo = () => {
-    // creates entity
-    fetch("http://localhost:17575//api/Student/studentaddedit", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-        accept: "application/json",
-      },
-      body: JSON.stringify(addStudent),
-    })
-      .then((response) => response.json())
-      .then((response) => {
-        console.log(response);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+  const updateStudentInfo = async () => {
+    const collectionRef = collection(db, "StudentDB");
+
+    const docRef = await addDoc(collectionRef, addStudent);
+    console.log("The new ID is: " + docRef.id);
   };
   return (
     <>
