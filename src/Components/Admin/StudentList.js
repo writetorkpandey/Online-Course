@@ -10,12 +10,15 @@ export default function StudentList() {
   const [studentList, setStudentList] = useState([]);
 
   useEffect(
-    () =>
+    () =>{
       onSnapshot(collection(db, "StudentDB"), (snapshot) =>
         setStudentList(
           snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }))
         )
-      ),
+      )
+      setfilterStudentList(response.getStudentList);
+        setLoading(false);
+    },
     []
   );
 
